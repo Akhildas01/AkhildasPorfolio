@@ -1,0 +1,300 @@
+/* ===============================
+   ROOT THEME
+================================ */
+:root {
+  --bg-main: #f8fafc;
+  --bg-section: #ffffff;
+  --primary: #2563eb;
+  --secondary: #14b8a6;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 18px 50px rgba(15, 23, 42, 0.14);
+}
+
+/* ===============================
+   BASE
+================================ */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #f8fafc, #eef2ff);
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===============================
+   NAVBAR – CINEMATIC SOLID
+================================ */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 68px;
+  padding: 0 3rem;
+
+  display: flex;
+  align-items: center;
+
+  background: #020617;
+  border-bottom: 1px solid var(--border-soft);
+  z-index: 100;
+  animation: navFade 0.6s ease-out;
+}
+
+@keyframes navFade {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Brand / Title */
+nav h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* Navigation list */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-left: auto; /* pushes navigation to the right */
+}
+
+/* Normal links */
+nav ul li a {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.35s ease;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Resume button pushed to extreme right */
+nav ul li:last-child {
+  margin-left: auto;
+}
+
+nav a[href$=".pdf"] {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav a[href$=".pdf"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+}
+/* ===============================
+   HERO HEADER
+================================ */
+header {
+  padding: 6rem 4rem;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: white;
+  border-radius: 0 0 3rem 3rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+header p.text-xl {
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+header p {
+  max-width: 720px;
+  margin-top: 1.8rem;
+  color: #cbd5f5;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+  max-width: 1150px;
+  margin: -4rem auto 0;
+  padding: 4rem;
+  background: var(--bg-section);
+  border-radius: 2.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+section + section {
+  margin-top: 4rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin-top: 0.6rem;
+}
+
+/* ===============================
+   CONTACT SECTION (UPDATED THEME)
+================================ */
+footer {
+  margin-top: 6rem;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: #e5e7eb;
+}
+
+/* Heading */
+footer h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+}
+
+footer p {
+  text-align: center;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+}
+
+/* Contact Card */
+footer form {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2.8rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Inputs */
+footer input,
+footer textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.45rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  color: #f8fafc;
+}
+
+footer input::placeholder,
+footer textarea::placeholder {
+  color: #94a3b8;
+}
+
+footer input:focus,
+footer textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Submit Button */
+footer button {
+  width: 100%;
+  margin-top: 1.2rem;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.85rem;
+  border-radius: 0.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+footer button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  header {
+    padding: 4rem 1.5rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 2.5rem 1.5rem;
+    border-radius: 2rem;
+  }
+}
+/* ===============================
+   DOWNLOAD RESUME BUTTON (RESTORED)
+================================ */
+header a {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.85rem 1.9rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+}
+
+header a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(20, 184, 166, 0.45);
+}
